@@ -3,6 +3,8 @@ function handleSearchSubmit(event) {
   let searchInput = document.querySelector("#search-form-input");
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = searchInput.value;
+  // call the API
+  // search for the city
 }
 
 let searchFormElement = document.querySelector("#search-form");
