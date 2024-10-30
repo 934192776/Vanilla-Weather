@@ -10,6 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <title>Meteo App</title>
   </head>
   <body>
@@ -29,23 +30,25 @@
       <main>
         <div class="weather-app-data">
           <div>
-            <h1 class="weather-app-city" id="city">Paris</h1>
+            <h1 class="weather-app-city" id="city"></h1>
             <p class="weather-app-details">
-              Tuesday 14:49, scattered clouds
+              <span id="time"></span>,
+              <span id="description"></span>
               <br />
-              Humidity: <strong>66%</strong>, Wind: <strong>3.13km/h</strong>
+              Humidity: <strong id="Humidity"></strong> Wind:
+              <strong id="wind-speed"></strong>
             </p>
           </div>
           <div class="weather-app-temperature-container">
-            <div class="weather-app-icon">🌤️</div>
-            <div class="weather-app-temperature">12</div>
+            <div id="icon"></div>
+            <div class="weather-app-temperature" id="temperature"></div>
             <div class="weatehr-app-unit">°C</div>
           </div>
         </div>
         <div class="weather-forecast">
           <div class="weather-forecast-day">
             <div class="weather-forecast-date">Mon</div>
-            <div calss="weather-forecast-icon">🌥️</div>
+            <div class="weather-forecast-icon"></div>
             <div class="weather-forecast-temperatures">
               <div class="weather-forecast-temperature">
                 <strong>20°C</strong>
@@ -72,39 +75,42 @@
               </div>
               <div class="weather-forecast-temperature">6°C</div>
             </div>
-            <div class="weather-forecast-day">
-              <div class="weather-forecast-date">Thur</div>
-              <div calss="weather-forecast-icon">☀️</div>
-              <div class="weather-forecast-temperatures">
-                <div class="weather-forecast-temperature">
-                  <strong>25°C</strong>
-                </div>
-                <div class="weather-forecast-temperature">13°C</div>
+          </div>
+          <div class="weather-forecast-day">
+            <div class="weather-forecast-date">Thur</div>
+            <div class="weather-forecast-icon">☀️</div>
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature">
+                <strong>25°C</strong>
               </div>
+              <div class="weather-forecast-temperature">13°C</div>
             </div>
-            <div class="weather-forecast-day">
-              <div class="weather-forecast-date">Fri</div>
-              <div calss="weather-forecast-icon">🌤️</div>
-              <div class="weather-forecast-temperatures">
-                <div class="weather-forecast-temperature">
-                  <strong>19°C</strong>
-                </div>
-                <div class="weather-forecast-temperature">8°C</div>
+          </div>
+          <div class="weather-forecast-day">
+            <div class="weather-forecast-date">Fri</div>
+            <div class="weather-forecast-icon">🌤️</div>
+            <div class="weather-forecast-temperatures">
+              <div class="weather-forecast-temperature">
+                <strong>19°C</strong>
               </div>
+              <div class="weather-forecast-temperature">8°C</div>
             </div>
           </div>
         </div>
       </main>
 
-    <footer>
-      This project was coded by
-      <a href="https://github.com/matthieua/" target="_blank"> Matt Delac</a>,
-      is
-      <a href="https://github.com/matthieua/meteo" target="_blank">open-sourced on GitHub</a>
-      and
-      <a href="https://meteo-shecodes-app.netlify.app/" target="_blank">hosted on Netlify</a>
-    </footer>
-  </div>
-  <script src="src/index.js"></script>
- </body>
+      <footer>
+        This project was coded by
+        <a href="https://github.com/934192776" target="_blank"> Jing Hui</a>, is
+        <a href="https://github.com/934192776/Vanilla-Weather" target="_blank"
+          >open-sourced on GitHub</a
+        >
+        and
+        <a href="https://bucolic-pie-291c28.netlify.app/" target="_blank"
+          >hosted on Netlify</a
+        >
+      </footer>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
 </html>
