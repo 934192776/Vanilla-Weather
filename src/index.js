@@ -3,7 +3,7 @@ function refreshWeather(response) {
   let temperature = response.data.temperature.current;
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
-  let humidityElement = document.querySelector("#humidity");
+  let humidityElement = document.querySelector("#Humidity");
   let windSpeedElement = document.querySelector("#wind-speed");
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
@@ -11,9 +11,9 @@ function refreshWeather(response) {
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
-  descriptionElement.innerHTML = response.data.coditionn.description;
-  humidityElement.innerHTML = "{response.data.temperature.humidity}%";
-  windSpeedElement.innerHTML = "${response.data.wind.speed}km/h";
+  descriptionElement.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = Math.round(temperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
 
@@ -44,7 +44,7 @@ function formatDate(date) {
 function searchCity(city) {
   let apiKey = "42a0cfddect68b2caab3ec7123od7204";
   let apiUrl =
-    "https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&unites=metric";
+    `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&unites=metric`;
   axios.get(apiUrl).then(refreshWeather);
 }
 
@@ -64,7 +64,7 @@ function formatDay(timestamp) {
 
 function getForecast(city) {
   let apiKey ="42a0cfddect68b2caab3ec7123od7204";
-  let apiUrl = 'https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric';
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios(apiUrl).then(displayForecast);
   
 } 
@@ -81,15 +81,14 @@ function displayForecast(response) {
       <div class="weather-forecast-date">${formatDay(day.time)}</div>
         
          <img src="${day.condition.icon_url}" class="weather-forecast-icon"/>
-        </div>
           <div class="weather-forecast-temperatures">
-            <div class="weather-forecast-temperature">
-              <strong>${Math.round(day.temperature.maximum)}°</strong>
-            </div>
-           <div class="weather-forecast-temperature">${Math.round(
-             day.temperature.minimum
-           )}°</div>
-        </div>
+              <div class="weather-forecast-temperature">
+                <strong>${Math.round(day.temperature.maximum)}°</strong>
+              </div>
+            <div class="weather-forecast-temperature">${Math.round(
+              day.temperature.minimum
+            )}°</div>
+          </div>
       </div>
     `;
     }
